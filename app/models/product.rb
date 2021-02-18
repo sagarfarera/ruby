@@ -1,4 +1,8 @@
 class Product < ApplicationRecord
+  has_many :entities
+
+  before_destroy :make_sure_not_refered_in_any_entity
+
   #validation 
   #mandatory fields
   validates :title, :description, :image_url, presence: true
@@ -12,18 +16,16 @@ class Product < ApplicationRecord
    #task- 
    validates :title, length: {minimum: 4}
 
-  has_many :line_items4
-
-  before_destroy :ensure_not_referenced_by_any_line_item
-
+  private 
   private
-  # ensure that there are no line items referencing this product
-    def ensure_not_referenced_by_any_line_item
-      unless line_items.empty?
-      errors.add( :base, 'Line Items present')
-      throw :abort
+    # ensure that there are no line items referencing this product
+    def make_sure_not_refered_in_any_entity
+      unless entities.empty?
+        errors.add( :base, 'Entity present')
+        throw :abort
       end
     end
+
 end
   
 

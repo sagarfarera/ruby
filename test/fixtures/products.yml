@@ -2,12 +2,12 @@
 
 one:
   title: MyString
-  image_url: MyString
+  image_url: lorem.jpg
   price: 9.99
   description: MyText
 
 two:
   title: MyString
-  image_url: MyString
+  image_url: lorem.jpg
   price: 9.99
   description: MyText

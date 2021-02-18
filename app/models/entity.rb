@@ -1,4 +1,4 @@
-class LineItem < ApplicationRecord
+class Entity < ApplicationRecord
   belongs_to :product
   belongs_to :cart
 end
