@@ -2,6 +2,12 @@
  <aside id= "notice"> <%= notice %></aside>
 <% end %>
 <h1>Your Pragmatic Catalog</h1>
+<!--Playful task Date and time -->
+<div class="DateTime">
+  <p>Date : <%= @time.day %> / <%= @time.month %> / <%= @time.year %> </p>
+  <p>Time : <%= @time.hour %> : <%= @time.min %> </p>
+</div>
+
 <ul class= "catalog">
   <% cache @products do %>
     <% @products.each do |product| %>
@@ -17,7 +23,8 @@
           <div class="card-body">
             <h5 class="card-title"> <%= product.title %></h5>
             <p class="card-text"> <%= sanitize(product.description) %></p>
-            <p class="card-text"><small class="text-muted"><%= number_to_currency(product.price, precision: 2 ) %></small></p>
+            <!--Playtime task  number to currency function changes, note: testing task one not done -->
+            <p class="card-text"><small class="text-muted"><%= number_to_currency(product.price, precision: 2 , unit: "₹") %></small></p>
             <%= button_to 'Add to Cart', entities_path( product_id:product), class:"btn btn-secondary" %>
           </div>
         </div>

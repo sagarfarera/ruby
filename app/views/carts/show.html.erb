@@ -3,7 +3,7 @@
 <h2>Your Pragmatic Cart</h2>
 <ul>
  <% @cart.entities.each do |item| %>
- <li> <%= item.product.title %></li>
+ <li> <%= item.quantity%><%= item.product.title %></li>
  <% end %>
 </ul>
 

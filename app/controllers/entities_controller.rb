@@ -24,7 +24,7 @@ class EntitiesController < ApplicationController
   # POST /entities or /entities.json
   def create
     product = Product.find(params[ :product_id])
-    @entity = @cart.entities.build( product: product)
+    @entity =  @cart.add_product(product)
 
     respond_to do |format|
       if @entity.save
