@@ -28,7 +28,7 @@ class EntitiesController < ApplicationController
 
     respond_to do |format|
       if @entity.save
-        format.html { redirect_to @entity, notice: "Entity was successfully created." }
+        format.html { redirect_to @cart}
         format.json { render :show, status: :created, location: @entity }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -67,6 +67,6 @@ class EntitiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def entity_params
-      params.require(:entity).permit(:product_id, :cart_id)
+      params.require(:entity).permit(:product_id)
     end
 end

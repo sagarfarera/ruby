@@ -1,9 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<h2>Your Pragmatic Cart</h2>
-<ul>
- <% @cart.entities.each do |item| %>
- <li> <%= item.quantity%><%= item.product.title %></li>
- <% end %>
-</ul>
+<h2>Your Cart</h2>
+<!-- Table formation -->
+ <table class="table">
+  <tbody>
+    <% @cart.entities.each do |item| %>
+    <tr>
+      <td class= "quantity"> <%= item.quantity %></td>
+      <td> <%= item.product.title %></td>
+      <td class= "price"> <%= number_to_currency(item.total_price) %>
+      </td>
+    </tr>
+    <% end %>
+   </tbody>
+  <tfoot>
+    <tr>
+      <th colspan= "2">Total:</th>
+      <td class= "price"> <%= number_to_currency(@cart.total_price) %></td>
+    </tr>
+  </tfoot>
+</table>
+<%= button_to 'Empty', @cart, method: :delete, data: {confirm: 'Are you sure?'} %>
 

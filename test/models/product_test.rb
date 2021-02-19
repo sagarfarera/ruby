@@ -1,6 +1,8 @@
 require "test_helper"
 
 class ProductTest < ActiveSupport::TestCase
+
+ # fixtures :product
 #First Validation test
   # test "Mandatory Fields" do
   #   product = Product.new
@@ -63,5 +65,19 @@ class ProductTest < ActiveSupport::TestCase
     assert incorrect_product.invalid?,"validation not working on title, making title less than 4 character"
   
   end
+
+  # Skipped the validation for uniqueness of title and fixtues part so doing that
+
+# taking data for the testing in the product table from table
+# we have added a ruby book object over there and will try to test the uniqueness in title
+
+test "product is not valid without a unique title" do
+  product = Product.new( title: products( :ruby).title,
+  description: "yyy",
+  price: 1,
+  image_url: "fred.gif")
+  assert product.invalid?
+  assert_equal [ "has already been taken"], product.errors[ :title]
+ end
 
 end
