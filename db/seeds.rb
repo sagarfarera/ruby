@@ -1,5 +1,7 @@
+Product.delete_all
 Entity.delete_all
 Cart.delete_all
+Order.delete_all
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
