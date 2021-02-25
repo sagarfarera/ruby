@@ -1,12 +1,11 @@
-<% if notice %>
- <aside id= "notice"> <%= notice %></aside>
-<% end %>
+
 <h1>Your Pragmatic Catalog</h1>
 <!--Playful task Date and time -->
 <div class="DateTime">
   <p>Date : <%= @time.day %> / <%= @time.month %> / <%= @time.year %> </p>
   <p>Time : <%= @time.hour %> : <%= @time.min %> </p>
 </div>
+
 
 <ul class= "catalog">
   <% cache @products do %>

@@ -1,0 +1,9 @@
+<tr>
+    <td class= "quantity"> <%= entity.quantity %></td>
+    <td> <%= entity.product.title %></td>
+    <td class= "price"> <%= number_to_currency(entity.price, precision: 2 , unit: "₹")%></td>
+    <!-- Playtime task delection of entity from the cart -->
+    <td><%= button_to "x", {:controller => :entities,
+      :action => 'destroy', :id => entity.id }, :method => :delete , class: "btn btn-secondary" %>
+    </td>
+</tr>

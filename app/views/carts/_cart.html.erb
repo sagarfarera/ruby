@@ -1,0 +1,17 @@
+<h2>Your Cart</h2>
+<!-- Table formation -->
+ <table class="table">
+  <tbody>
+  <% cart.entities.each do |item|%>
+  <%= render partial: "carts/entity", locals: {entity: item } %>
+  <%end%>
+   </tbody>
+  <tfoot>
+    <tr>
+      <th colspan= "2">Total:</th>
+      <td class= "price"> <%= number_to_currency( cart.total_price, precision: 2 , unit: "₹") %></td>
+    </tr>
+  </tfoot>
+</table>
+<%= button_to 'Empty', cart, method: :delete, data: {confirm: 'Are you sure?'} %>
+

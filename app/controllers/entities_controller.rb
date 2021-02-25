@@ -28,7 +28,7 @@ class EntitiesController < ApplicationController
 
     respond_to do |format|
       if @entity.save
-        format.html { redirect_to @cart}
+        format.html { redirect_to store_index_url}
         format.json { render :show, status: :created, location: @entity }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -55,7 +55,7 @@ class EntitiesController < ApplicationController
     @entity.destroy
     respond_to do |format|
       # problem was not able to rediect to the current cart providing id led to an error message that nil par direct nhi kar skta hu
-      format.html { redirect_to carts_path, notice: "Entity was successfully destroyed." }
+      format.html {redirect_back fallback_location: "/xindex", notice: "Entity was successfully destroyed." }
       format.json { head :no_content }
     end
   end

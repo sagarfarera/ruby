@@ -15,10 +15,18 @@
   <body>
   <%= render 'home/header'%>
 
-  
-  <div class="container">
+  <div class = "d-flex justify-content-around border-0">
+  <div class="card w-75">
     <%= yield %>
     </div>
+     <% if @cart%>
+    <div class = "card w-20" style=>
+      <%= render @cart%>
+      </div>
+    <%end%>
+
+  
+  </div>
 
 
     <!-- Optional JavaScript; choose one of the two! -->

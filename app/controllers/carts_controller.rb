@@ -54,7 +54,7 @@ class CartsController < ApplicationController
     @cart.destroy if @cart.id == session[:cart_id]#please note that session is not yet created 
     session[ :cart_id] = nil
     respond_to do |format|
-      format.html { redirect_to carts_url, notice: "Cart was successfully destroyed." }
+      format.html { redirect_to store_index_url, notice: "Cart was successfully destroyed." }
       format.json { head :no_content }
     end
   end
