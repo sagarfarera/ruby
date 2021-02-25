@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 2021_02_19_100149) do
     t.integer "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "quantity"
     t.index ["product_id"], name: "index_line_items_on_product_id"
   end
 

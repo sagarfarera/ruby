@@ -45,4 +45,14 @@ class EntitiesControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to entities_url
   end
+
+  test "should create entity via ajax" do
+    assert_difference( 'entity.count') do
+    post entities_url, params: { product_id: products( :ruby).id },
+    xhr: true
+    end
+    assert_response :success
+    assert_match /<tr class=\\"line-item-highlight/, @response.body
+   end
+   
 end

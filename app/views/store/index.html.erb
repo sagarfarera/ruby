@@ -24,7 +24,7 @@
             <p class="card-text"> <%= sanitize(product.description) %></p>
             <!--Playtime task  number to currency function changes, note: testing task one not done -->
             <p class="card-text"><small class="text-muted"><%= number_to_currency(product.price, precision: 2 , unit: "₹") %></small></p>
-            <%= button_to 'Add to Cart', entities_path( product_id:product), class:"btn btn-secondary" %>
+            <%= button_to 'Add to Cart', entities_path( product_id:product), remote: true, class:"btn btn-secondary" %>
           </div>
         </div>
       </div>
